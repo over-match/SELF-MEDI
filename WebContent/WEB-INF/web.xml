@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>SELF_MEDI</display-name>
+  <welcome-file-list>
+    <welcome-file>main</welcome-file>
+  </welcome-file-list>
+  <filter>
+    <filter-name>HangulEncodingFilter</filter-name>
+    <filter-class>com.fulldoping.filter.EncodingFilter</filter-class>
+  </filter>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/error/404e.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/error/500e.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.NullPointerException</exception-type>
+    <location>/WEB-INF/views/error/nullPointer.jsp</location>
+  </error-page>
+  <filter>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>com.fulldoping.filter.AdminLoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>HangulEncodingFilter</filter-name>
+    <url-pattern>/selftest/*</url-pattern>
+    <url-pattern>/member/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/ad/*</url-pattern>
+  </filter-mapping>
+</web-app>
